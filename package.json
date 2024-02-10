@@ -1,7 +1,7 @@
 {
   "name": "@gloomysergei/hexlet-oop",
   "version": "0.0.1",
-  "description": "asks by course Helet OOP",
+  "description": "Asks by course Helet OOP",
   "bin": {
     "nodejs-package": "bin/nodejs-package.js"
   },
