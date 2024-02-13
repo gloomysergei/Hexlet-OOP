@@ -1,7 +1,7 @@
 const getMutualFriends = (userOne, userTwo) => {
-  const friendsOne = userOne.getFriends(); // [] массив для меня абстракция
-  const friendsTwo = userTwo.getFriends(); // []
-  const arr = friendsOne.filter(({ item }) => friendsTwo.includes({ item }));
-  return arr;
+  const friendsOne = userOne.getFriends();
+  const friendsTwo = userTwo.getFriends();
+  const arr = friendsOne.map((item) => friendsTwo.filter((elem) => item.id === elem.id));
+  return arr.flat();
 };
 export default getMutualFriends;

@@ -1,3 +1,4 @@
+/* eslint-disable quotes */
 import makeUser from "./user.js";
 import getMutualFriends from "./users.js";
 

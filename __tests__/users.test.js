@@ -1,5 +1,6 @@
+/* eslint-disable quotes */
 import makeUser from "../src-02/user.js";
-import { getMutualFriends } from "../src-02/users.js";
+import getMutualFriends from "../src-02/users.js";
 
 test("without friends", () => {
   const user1 = makeUser();
