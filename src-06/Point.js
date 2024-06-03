@@ -12,7 +12,3 @@ function Point(x, y) {
   this.getY = getY;
 }
 export default Point;
-
-// const point = new Point(10, 89);
-// console.log(point.getX());
-// console.log(point);
