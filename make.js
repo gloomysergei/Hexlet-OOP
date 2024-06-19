@@ -1,9 +1,24 @@
-/* eslint-disable space-before-function-paren */
-/* eslint-disable no-extend-native */
+/* eslint-disable no-inner-declarations */
 /* eslint-disable quotes */
-/* eslint-disable arrow-body-style */
+/* eslint-disable no-new-wrappers */
+{
+  const company = {
+    name: "Hexlet",
+    toString() {
+      return this.name;
+    },
+  };
+  console.log(`I love ${company}`);
+}
 
-String.prototype.toUpperCase = function () {
-  return {};
-};
-console.log("hexlet".toUpperCase());
+{
+  function Company(name) {
+    this.name = name;
+  }
+
+  Company.prototype.toString = function toString() {
+    return this.name;
+  };
+  const company = new Company("Hexlet");
+  console.log(company.toString());
+}
