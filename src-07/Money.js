@@ -11,9 +11,11 @@ function Money(value, currency = "usd") {
 Money.prototype.getValue = function () {
   return this.value;
 };
+
 Money.prototype.getCurrency = function () {
   return this.currency;
 };
+
 Money.prototype.exchangeTo = function (currency) {
   const currentCurrency = this.currency;
   let obj;
@@ -35,11 +37,24 @@ Money.prototype.exchangeTo = function (currency) {
   }
   return obj;
 };
-Money.prototype.add = (money) => {
-  const currentValue = money.getValue; // получили текущую сумму
-  const currentCurrency = money.getCurrence; // получили текущую валюту
+
+Money.prototype.add = function (transferredMoney) {
+  const transferredValue = transferredMoney
+    .exchangeTo(this.currency)
+    .getValue();
+  const sourceValue = this.value;
+  const newValue = transferredValue + sourceValue;
+  return new Money(newValue, this.currency);
 };
-const money = new Money(100);
-// console.log(money.exchangeTo("eur"));
-// console.log(money.exchangeTo("usd"));
-console.log(money.add(200));
+
+Money.prototype.format = function (money) {};
+
+export default Money;
+
+/**
+ * `Money.prototype.add(money)` – возвращает новый объект деньги, который представляет
+ *  собой сумму исходных и переданных денег, в валюте исходных денег
+ *  (внутри возможна конвертация если валюты не совпадают)
+ * исходные деньги - source money
+ * переданные деньги - transferred money
+ */
